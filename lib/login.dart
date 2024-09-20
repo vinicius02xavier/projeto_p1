@@ -5,7 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:projeto_p1/main.dart';
 
 void main() {
-  runApp(DevicePreview(
+  runApp(
+    DevicePreview(
       enabled: true,
       builder: (context) => const MainApp(),
     ),
@@ -32,7 +33,7 @@ class _TelaLoginState extends State<TelaLogin> {
           gradient: LinearGradient(
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
-            colors: [Colors.red, Colors.yellow],
+            colors: [Color(0xFFedf2f4), Colors.red],
           ),
         ),
 
@@ -45,18 +46,12 @@ class _TelaLoginState extends State<TelaLogin> {
                 Align(
                   alignment: Alignment.topCenter,
                 ),
-
-                SizedBox(height: 35),
-
                 Image.asset(
-                  'Images/logo.png',
-                  color: Color(0xff2e2929),
-                  width: 200,
-                  height: 200,
-                  fit: BoxFit.contain,
+                  'Images/logojapa.png.png',
+                  color: Colors.black,
+                  width: 300,
+                  height: 250,
                 ),
-
-                SizedBox(height: 15),
 
                 Align(
                   alignment: Alignment.centerLeft,
@@ -65,7 +60,7 @@ class _TelaLoginState extends State<TelaLogin> {
                     style: TextStyle(
                       fontSize: 35,
                       fontWeight: FontWeight.bold,
-                      color: Color(0xff2e2929),
+                      color: Colors.black,
                     ),
                   ),
                 ),
@@ -76,11 +71,31 @@ class _TelaLoginState extends State<TelaLogin> {
                   controller: txtEmail,
                   decoration: InputDecoration(
                     labelText: 'Email',
+                    labelStyle: TextStyle(
+                      color: Colors.black,
+                    ),
                     border: OutlineInputBorder(),
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.black),
+                      borderRadius: BorderRadius.all(Radius.circular(20.0)),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.black),
+                      borderRadius: BorderRadius.all(Radius.circular(20.0)),
+                    ),
+                    errorBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.black),
+                      borderRadius: BorderRadius.all(Radius.circular(20.0)),
+                    ),
+                    focusedErrorBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.black),
+                      borderRadius: BorderRadius.all(Radius.circular(20.0)),
+                    ),
                     hintText: 'Informe o seu email',
                   ),
                   style: TextStyle(
                     fontSize: 20,
+                    color: Colors.black,
                   ),
                   keyboardType: TextInputType.emailAddress,
                   validator: (value) {
@@ -101,28 +116,36 @@ class _TelaLoginState extends State<TelaLogin> {
                   controller: txtSenha,
                   decoration: InputDecoration(
                     labelText: 'Senha',
+                    labelStyle: TextStyle(
+                      color: Colors.black,
+                    ),
                     border: OutlineInputBorder(),
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.black),
+                      borderRadius: BorderRadius.all(Radius.circular(20.0)),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.black),
+                      borderRadius: BorderRadius.all(Radius.circular(20.0)),
+                    ),
+                    errorBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.black),
+                      borderRadius: BorderRadius.all(Radius.circular(20.0)),
+                    ),
+                    focusedErrorBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.black),
+                      borderRadius: BorderRadius.all(Radius.circular(20.0)),
+                    ),
                     hintText: 'Informe a sua senha',
                   ),
                   style: TextStyle(
                     fontSize: 20,
+                    color: Colors.black,
                   ),
                   obscureText: true,
                   validator: (value) {
                     if (value == null || value.isEmpty) {
                       return 'Informe a senha';
-                    }
-                    if (value.length < 6) {
-                      return 'A senha deve ter pelo menos 6 caracteres';
-                    }
-                    if (!RegExp(r'[A-Z]').hasMatch(value)) {
-                      return 'A senha deve ter pelo menos uma letra maiúscula';
-                    }
-                    if (!RegExp(r'[0-9]').hasMatch(value)) {
-                      return 'A senha deve ter pelo menos um número';
-                    }
-                    if (!RegExp(r'[!@#$%^&*(),.?":{}|<>]').hasMatch(value)) {
-                      return 'A senha deve ter pelo menos um caractere especial';
                     }
                     return null;
                   },
@@ -136,10 +159,11 @@ class _TelaLoginState extends State<TelaLogin> {
                     onPressed: () {
                       //Ir para tela Esqueci Minha Senha
                     },
+                    style: ButtonStyle(),
                     child: Text(
                       'Esqueceu a senha?',
                       style: TextStyle(
-                        color: Colors.red,
+                        color: Colors.black,
                         fontSize: 20,
                       ),
                     ),
@@ -193,3 +217,18 @@ class _TelaLoginState extends State<TelaLogin> {
     );
   }
 }
+
+
+
+                    /*if (value.length < 6) {
+                      return 'A senha deve ter pelo menos 6 caracteres';
+                    }
+                    if (!RegExp(r'[A-Z]').hasMatch(value)) {
+                      return 'A senha deve ter pelo menos uma letra maiúscula';
+                    }
+                    if (!RegExp(r'[0-9]').hasMatch(value)) {
+                      return 'A senha deve ter pelo menos um número';
+                    }
+                    if (!RegExp(r'[!@#$%^&*(),.?":{}|<>]').hasMatch(value)) {
+                      return 'A senha deve ter pelo menos um caractere especial';
+                    }*/

@@ -1,23 +1,20 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, sort_child_properties_last
 
 import 'package:flutter/material.dart';
-import 'package:projeto_p1/criar_conta.dart';
-import 'package:projeto_p1/esqueci_senha.dart';
 
 void main() {
-  runApp(TelaLogin());
+  runApp(TelaEsqueciSenha());
 }
 
-class TelaLogin extends StatefulWidget {
-  const TelaLogin({super.key});
+class TelaEsqueciSenha extends StatefulWidget {
+  const TelaEsqueciSenha({super.key});
 
   @override
-  State<TelaLogin> createState() => _TelaLoginState();
+  State<TelaEsqueciSenha> createState() => _TelaEsqueciSenhaState();
 }
 
-class _TelaLoginState extends State<TelaLogin> {
+class _TelaEsqueciSenhaState extends State<TelaEsqueciSenha> {
   var txtEmail = TextEditingController();
-  var txtSenha = TextEditingController();
   var formKey = GlobalKey<FormState>();
 
   @override
@@ -37,27 +34,29 @@ class _TelaLoginState extends State<TelaLogin> {
             key: formKey,
             child: Column(
               children: [
+                SizedBox(height: 30),
                 Align(
                   alignment: Alignment.topCenter,
-                ),
-                Image.asset(
-                  'Images/logojapa.png.png',
-                  color: Colors.black,
-                  width: 300,
-                  height: 200,
-                ),
-                Align(
-                  alignment: Alignment.centerLeft,
                   child: Text(
-                    'Login',
+                    'Esqueceu a senha?',
                     style: TextStyle(
-                      fontSize: 35,
+                      fontSize: 40,
                       fontWeight: FontWeight.bold,
                       color: Colors.black,
                     ),
                   ),
                 ),
-                SizedBox(height: 25),
+                SizedBox(height: 60),
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    'Enviaremos um email para recuperação de senha',
+                    style: TextStyle(
+                      fontSize: 20,
+                    ),
+                  ),
+                ),
+                SizedBox(height: 35),
                 TextFormField(
                   controller: txtEmail,
                   decoration: InputDecoration(
@@ -85,7 +84,7 @@ class _TelaLoginState extends State<TelaLogin> {
                     hintText: 'Informe o seu email',
                   ),
                   style: TextStyle(
-                    fontSize: 20,
+                    fontSize: 25,
                     color: Colors.black,
                   ),
                   keyboardType: TextInputType.emailAddress,
@@ -100,77 +99,17 @@ class _TelaLoginState extends State<TelaLogin> {
                     return null;
                   },
                 ),
-                SizedBox(height: 30),
-                TextFormField(
-                  controller: txtSenha,
-                  decoration: InputDecoration(
-                    labelText: 'Senha',
-                    labelStyle: TextStyle(
-                      color: Colors.black,
-                    ),
-                    border: OutlineInputBorder(),
-                    enabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.black),
-                      borderRadius: BorderRadius.all(Radius.circular(20.0)),
-                    ),
-                    focusedBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.black),
-                      borderRadius: BorderRadius.all(Radius.circular(20.0)),
-                    ),
-                    errorBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.black),
-                      borderRadius: BorderRadius.all(Radius.circular(20.0)),
-                    ),
-                    focusedErrorBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.black),
-                      borderRadius: BorderRadius.all(Radius.circular(20.0)),
-                    ),
-                    hintText: 'Informe a sua senha',
-                  ),
-                  style: TextStyle(
-                    fontSize: 20,
-                    color: Colors.black,
-                  ),
-                  obscureText: true,
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return 'Informe a senha';
-                    }
-                    return null;
-                  },
-                ),
-                SizedBox(height: 10),
-                Align(
-                  alignment: Alignment.centerRight,
-                  child: TextButton(
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => TelaEsqueciSenha()),
-                      );
-                    },
-                    style: ButtonStyle(),
-                    child: Text(
-                      'Esqueceu a senha?',
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 20,
-                      ),
-                    ),
-                  ),
-                ),
-                SizedBox(height: 55),
+                SizedBox(height: 70),
                 Align(
                   alignment: Alignment.bottomCenter,
                   child: ElevatedButton(
                       onPressed: () {
                         if (formKey.currentState!.validate()) {
-                          //Ir para a tela Cardápio
+                          //Mandar email para troca de senha
                         }
                       },
                       child: Text(
-                        'Entrar',
+                        'Enviar email',
                         style: TextStyle(
                           color: Colors.white,
                           fontSize: 24,
@@ -181,19 +120,15 @@ class _TelaLoginState extends State<TelaLogin> {
                         minimumSize: Size(200, 60),
                       )),
                 ),
-                SizedBox(height: 30),
+                SizedBox(height: 40),
                 Align(
                   alignment: Alignment.bottomCenter,
                   child: ElevatedButton(
                     onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => TelaCriarConta()),
-                      );
+                      Navigator.pop(context);
                     },
                     child: Text(
-                      'Criar Conta',
+                      'Voltar',
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 24,

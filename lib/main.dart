@@ -3,6 +3,7 @@
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
 import 'package:projeto_p1/loading.dart';
+import 'package:projeto_p1/principal.dart';
 
 void main() {
   runApp(
@@ -19,7 +20,7 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: TelaLoading(),
+      home: TelaPrincipal(),
     );
   }
 }

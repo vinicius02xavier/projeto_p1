@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:projeto_p1/criar_conta.dart';
 import 'package:projeto_p1/esqueci_senha.dart';
+import 'package:projeto_p1/principal.dart';
 
 void main() {
   runApp(TelaLogin());
@@ -166,7 +167,10 @@ class _TelaLoginState extends State<TelaLogin> {
                   child: ElevatedButton(
                       onPressed: () {
                         if (formKey.currentState!.validate()) {
-                          //Ir para a tela Cardápio
+                          Navigator.push(
+                            context, 
+                            MaterialPageRoute(builder: (context) => TelaPrincipal()),
+                          );
                         }
                       },
                       child: Text(

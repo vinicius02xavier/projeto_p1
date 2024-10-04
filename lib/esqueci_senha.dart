@@ -136,7 +136,7 @@ class _TelaEsqueciSenhaState extends State<TelaEsqueciSenha> {
                     ),
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.red,
-                      minimumSize: Size(200, 60),
+                      minimumSize: Size(100, 60),
                     ),
                   ),
                 )

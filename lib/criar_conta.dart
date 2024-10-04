@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, sort_child_properties_last
 
 import 'package:flutter/material.dart';
+import 'package:projeto_p1/principal.dart';
 
 class TelaCriarConta extends StatefulWidget {
   const TelaCriarConta({Key? key}) : super(key: key);
@@ -269,7 +270,10 @@ class _TelaCriarContaState extends State<TelaCriarConta> {
                         child: ElevatedButton(
                           onPressed: () {
                             if (formKey.currentState!.validate()) {
-                              //Ir para a tela Cardápio
+                              Navigator.push(
+                                context, 
+                                MaterialPageRoute(builder: (context) => TelaPrincipal()),
+                              );
                             }
                           },
                           child: Text(
